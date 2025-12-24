@@ -1,0 +1,51 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pkl
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter / IPython
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# PyCharm / IntelliJ
+.idea/
+
+# Logs
+logs/
+*.log
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Byte-compiled / C extensions
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# FastAPI / Uvicorn
+*.sqlite3
+
+# --- Project specific ---
+
+# Environment files (never commit secrets)
+.env
+.env.*
+
+# Cache
+.cache/
+.mypy_cache/
+pytest_cache/
