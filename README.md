@@ -157,3 +157,37 @@ graph TD
 ```
 
 ---
+
+## 📂 Project Structure
+
+```text
+📦 project-47-ai-discord-assistant
+ ┣ 📂 backend
+ ┃ ┣ 📂 app
+ ┃ ┃ ┗ 📜 main.py          <- The FastAPI Engine (Routing & ML Pipelines)
+ ┃ ┗ 📜 requirements.txt   <- Backend-specific ML dependencies (Torch, Diffusers)
+ ┣ 📂 bot
+ ┃ ┣ 📜 .env               <- Environment Keys (DO NOT COMMIT!)
+ ┃ ┣ 📜 bot.py             <- The Discord Client Interface
+ ┃ ┣ 📜 pull_model.py      <- Utility script to pre-fetch Ollama models
+ ┃ ┗ 📜 requirements.txt   <- Bot-specific dependencies (Discord.py, HTTPX)
+ ┣ 📜 .gitignore           <- Repository ignore rules
+ ┗ 📜 README.md            <- You are here!
+```
+
+---
+
+## 💻 Prerequisites & System Requirements
+
+Due to the heavy lifting performed by machine learning models, your host machine requires specific specs:
+
+### Basic Requirements
+* **RAM:** Minimum `8GB` (16GB+ strongly recommended for concurrent image gen + LLM)
+* **Storage:** `~10GB` free space (Stable diffusion weights are ~4GB; Ollama Mistral is ~4.1GB)
+* **Python:** `v3.10` or higher
+* **Ollama:** Installed and running locally ([Download here](https://ollama.com/))
+
+### Recommended Hardware
+* **GPU:** NVIDIA RTX 3060+ with at least `6GB VRAM` to execute Stable Diffusion pipeline in `<5 seconds` via CUDA. (CPU fallback is configured but generates slowly).
+
+---
