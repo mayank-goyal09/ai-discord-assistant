@@ -71,3 +71,50 @@
 </div>
 
 ---
+
+## 🤖 Core Capabilities & Models
+
+<table align="center" width="100%">
+  <tr>
+    <td align="center" width="25%">
+      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Camera%20with%20Flash.png" alt="Vision" width="80" />
+      <br />
+      <b>Computer Vision</b>
+    </td>
+    <td width="75%">
+      Utilizes the <b>LLaVA (Large Language-and-Vision Assistant)</b> model running via Ollama. When a user attaches an image, the bot seamlessly transitions to a vision state, analyzing the pixels and describing the scene, answering questions about the image's content.
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="25%">
+      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Studio%20Microphone.png" alt="Voice" width="80" />
+      <br />
+      <b>Audio Transcription</b>
+    </td>
+    <td width="75%">
+      Powered by <b>Faster-Whisper (Int8 Compute)</b>. Captures raw `.ogg`, `.mp3`, or `.wav` voicenotes directly from Discord, processing the raw audiobytes and decoding them into highly accurate text using the base Whisper model architecture, feeding it directly into the LLM context.
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="25%">
+      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Milky%20Way.png" alt="Generation" width="80" />
+      <br />
+      <b>AI Art Generation</b>
+    </td>
+    <td width="75%">
+      Harnesses the power of <b>Stable Diffusion v1-5 (RunwayML)</b> via HuggingFace `diffusers`. Generates complex visual concepts in ~20 inference steps natively on the host's GPU/CPU. Includes an interactive UI inside Discord to regenerate or delete generation outputs dynamically.
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="25%">
+      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Robot.png" alt="Chat" width="80" />
+      <br />
+      <b>Contextual LLM</b>
+    </td>
+    <td width="75%">
+      Powered by <b>Mistral 7B</b>. The core logic brain. Maintains an active running memory (up to 10 conversational turns per unique Discord User ID), maintaining distinct system prompts governing its "Nexus" personality.
+    </td>
+  </tr>
+</table>
+
+---
