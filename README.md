@@ -1,125 +1,50 @@
+<!-- Header Banner -->
 <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=250&section=header&text=AI%20Discord%20Assistant&fontSize=50&animation=fadeIn&fontAlignY=38&desc=Multimodal%20Intelligence%20in%20Your%20Server&descAlignY=55&descAlign=50" alt="Header" />
 </div>
 
+<!-- Technology Badges -->
 <div align="center">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
-  <img src="https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi" alt="FastAPI"/>
-  <img src="https://img.shields.io/badge/Discord.py-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord.py"/>
-  <img src="https://img.shields.io/badge/Ollama-FFFFFF?style=for-the-badge&logo=Ollama&logoColor=black" alt="Ollama"/>
+  <a href="https://www.python.org/">
+    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+  </a>
+  <a href="https://fastapi.tiangolo.com/">
+    <img src="https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi" alt="FastAPI"/>
+  </a>
+  <a href="https://discordpy.readthedocs.io/en/stable/">
+    <img src="https://img.shields.io/badge/Discord.py-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord.py"/>
+  </a>
+  <a href="https://ollama.com/">
+    <img src="https://img.shields.io/badge/Ollama-FFFFFF?style=for-the-badge&logo=Ollama&logoColor=black" alt="Ollama"/>
+  </a>
+  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch"/>
+  <img src="https://img.shields.io/badge/HuggingFace-F9AB00?style=for-the-badge&logo=huggingface&logoColor=white" alt="HuggingFace"/>
 </div>
 
 <br/>
 
-## 🌟 The Problem
-**Users juggle separate tools for text, image, and voice AI — creating a fragmented, inefficient, and frustrating experience.**
-
-## 🧠 The Logic
-**A FastAPI backend orchestrates three AI models — contextual chat, diffusion-based imaging, and real-time audio transcription — via unified endpoints.**
-
-## 🚀 The Result
-**A production-ready Discord assistant handling multimodal AI requests in real-time, eliminating external tools through seamless RESTful integration.**
-
----
-
+<!-- Introduction -->
 <div align="center">
-  <h2>🎥 See It In Action</h2>
-  <p><i>Watch the bot generate images, transcribe audio, and chat seamlessly!</i></p>
-  
-  <!-- Replace the href link with your YouTube URL, and the img src with your video thumbnail -->
-  <a href="URL_TO_YOUR_YOUTUBE_VIDEO">
-    <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg" width="800" alt="Watch the Demo">
-  </a>
+  <i>A fully autonomous, self-hosted Discord bot powered by state-of-the-art open-source machine learning models. Chat contextually, generate stunning images, analyze visual data, and transcribe voice messages—all running exactly where you want it.</i>
 </div>
 
----
+<br/>
 
-## 🔥 Key Features
-
-<table align="center">
-  <tr>
-    <td align="center" width="33%">
-      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Camera%20with%20Flash.png" alt="Vision" width="80" />
-      <br />
-      <b>Image Recognition</b>
-      <br />
-      Understands images sent in chat using the <code>LLaVA</code> vision model.
-    </td>
-    <td align="center" width="33%">
-      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Studio%20Microphone.png" alt="Voice" width="80" />
-      <br />
-      <b>Voice to Text</b>
-      <br />
-      Listens and transcribes voice notes instantly with <code>Faster-Whisper</code>.
-    </td>
-    <td align="center" width="33%">
-      <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Milky%20Way.png" alt="Generation" width="80" />
-      <br />
-      <b>AI Art Generation</b>
-      <br />
-      Paints stunning concepts using <code>Stable Diffusion v1-5</code>.
-    </td>
-  </tr>
-</table>
+<details open>
+  <summary><b>📖 Table of Contents</b></summary>
+  <ol>
+    <li><a href="#-the-problem">The Problem</a></li>
+    <li><a href="#-the-logic">The Logic</a></li>
+    <li><a href="#-the-result">The Result</a></li>
+    <li><a href="#-see-it-in-action">See It In Action</a></li>
+    <li><a href="#-core-capabilities--models">Core Capabilities & Models</a></li>
+    <li><a href="#-system-architecture">System Architecture</a></li>
+    <li><a href="#-project-structure">Project Structure</a></li>
+    <li><a href="#-prerequisites--system-requirements">Requirements</a></li>
+    <li><a href="#-step-by-step-installation">Installation</a></li>
+    <li><a href="#-command-reference">Command Reference</a></li>
+    <li><a href="#-troubleshooting-guide">Troubleshooting</a></li>
+  </ol>
+</details>
 
 ---
-
-## 🏗️ Architecture
-
-The app is broken down into two microservices running in parallel:
-
-> **🤖 The Frontend (Bot):** A `discord.py` client that watches for messages, audio clips, and image attachments, routing them to the internal APIs.
-> 
-> **⚙️ The Engine (Backend):** A `FastAPI` server driving heavy machine-learning workloads locally via `Torch`, `Transformers`, and `Ollama`.
-
-```mermaid
-graph LR
-    User(('User')) -->|Message/Audio/Image| Discord[Discord Channel]
-    Discord -->|Events| Bot[Bot Interface]
-    Bot -->|REST API| Backend{FastAPI Server}
-    
-    Backend -->|Text/Vision| Ollama[Ollama LLM]
-    Backend -->|Text to Image| StableDif[Stable Diffusion]
-    Backend -->|Voice to Text| Whisper[Faster Whisper]
-```
-
----
-
-## ⚡ Quick Commands
-
-| Command | Action | Visual Example |
-|---|---|---|
-| `ai: <message>` | Prompts the AI (with memory context!) | 💬 |
-| `image: <prompt>` | Generates a custom image. Includes regenerate UI. | 🎨 |
-| `ai: clear` | Wipes the user's conversational memory. | 🧹 |
-| *Attach Audio* | Bot auto-transcribes the `.ogg`/`.mp3`. | 🎙️ |
-| *Attach Image* | Bot analyzes the image using Vision models. | 👁️ |
-
----
-
-## 🛠️ How to Run Locally
-
-### 1️⃣ Start the Backend AI Engine
-```bash
-cd backend
-python -m venv .venv
-.\.venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn app.main:app --host 127.0.0.1 --port 8000
-```
-> *Note: First run will download ~4GB for Stable Diffusion models!*
-
-### 2️⃣ Start the Discord Interface
-Open a **new** terminal window:
-```bash
-cd bot
-python -m venv .venv
-.\.venv\Scripts\activate
-pip install -r requirements.txt
-python bot.py
-```
-
----
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer" width="100%"/>
-</div>
