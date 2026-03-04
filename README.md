@@ -48,3 +48,26 @@
 </details>
 
 ---
+
+## 🌟 The Problem
+**Users juggle separate tools for text, image, and voice AI — creating a fragmented, inefficient, and frustrating experience.** Context is lost jumping between Midjourney, ChatGPT, and speech-to-text tools. Privacy is compromised by sending data to multiple third-party APIs.
+
+## 🧠 The Logic
+**A custom FastAPI backend orchestrates three distinct AI models — contextual chat (Mistral), diffusion-based imaging (Stable Diffusion), and real-time audio transcription (Faster-Whisper) — via unified API endpoints.** By decoupling the heavy ML operations from the Discord client interface, the system achieves maximum scalability without blocking event loops.
+
+## 🚀 The Result
+**A production-ready Discord assistant handling multimodal AI requests in real-time, eliminating external tools through seamless RESTful integration.** Everything runs locally, guaranteeing data privacy and zero subscription costs for external APIs.
+
+---
+
+<div align="center">
+  <h2>🎥 See It In Action</h2>
+  <p><i>Watch the bot generate images, transcribe audio, and chat seamlessly!</i></p>
+  
+  <!-- Add your YouTube link here -->
+  <a href="URL_TO_YOUR_YOUTUBE_VIDEO">
+    <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg" width="800" alt="Watch the Demo">
+  </a>
+</div>
+
+---
