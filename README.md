@@ -65,8 +65,8 @@
   <p><i>Watch the bot generate images, transcribe audio, and chat seamlessly!</i></p>
   
   <!-- Add your YouTube link here -->
-  <a href="URL_TO_YOUR_YOUTUBE_VIDEO">
-    <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg" width="800" alt="Watch the Demo">
+  <a href="https://youtu.be/NR1LOwulmjc">
+    <img src="image.png" width="800" alt="Watch the Demo">
   </a>
 </div>
 
@@ -278,4 +278,3 @@ Interact with **Nexus** inside any channel where the bot has permissions.
 <div align="center">
   <i>Built with ❤️ by Mayank Goyal</i>
 </div>
-
