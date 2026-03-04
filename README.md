@@ -252,3 +252,30 @@ Interact with **Nexus** inside any channel where the bot has permissions.
 | **Upload Image** | The backend overrides Mistral and dynamically loads the `LLaVA` model to parse raw `base64` image data, enabling Visual Question Answering. | 👁️ |
 
 ---
+
+## ⚠️ Troubleshooting Guide
+
+<details>
+  <summary><b>1. "Model taking too long to reply" or crashing?</b></summary>
+  If your system has limited RAM, Stable Diffusion will aggressively consume it. Open `backend/app/main.py` and comment out the `image_pipe` block. Restart the backend to just use Chat/Audio functionalities.
+</details>
+
+<details>
+  <summary><b>2. ConnectionRefusedError / httpx Timeout?</b></summary>
+  This means the <code>bot.py</code> cannot reach the FasTAPI engine. Ensure your backend is running on port 8000, and no firewall is blocking localhost traffic.
+</details>
+
+<details>
+  <summary><b>3. Ollama model not found error?</b></summary>
+  Ensure you ran <code>ollama pull mistral</code> and <code>ollama pull llava</code>. The backend specifically explicitly passes these model names into the HTTP requests.
+</details>
+
+---
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer" width="100%"/>
+</div>
+<br/>
+<div align="center">
+  <i>Built with ❤️ by Mayank Goyal</i>
+</div>
+
