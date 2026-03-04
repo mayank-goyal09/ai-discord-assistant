@@ -118,3 +118,42 @@
 </table>
 
 ---
+
+## 🏗️ System Architecture
+
+The ecosystem relies on an asynchronous event-driven architecture, clearly separating front-end event handling from back-end inference.
+
+```mermaid
+graph TD
+    subgraph Discord_Environment ["Discord Environment"]
+        User[Discord User]
+        Channel[Discord Text/Voice Channel]
+    end
+
+    subgraph Bot_Service ["Bot Service (bot.py)"]
+        Client[Discord.py Client]
+        MemoryMap[(User Session Memory)]
+        ViewUI[Interactive UI Buttons]
+    end
+
+    subgraph Inference_Backend ["Inference Backend (FastAPI)"]
+        Router[API Endpoints]
+        M_LLM[Ollama: Mistral]
+        M_Vision[Ollama: LLaVA]
+        M_Image[HuggingFace: Stable Diffusion]
+        M_Audio[Faster-Whisper]
+    end
+
+    User <-->|Commands/Media| Channel
+    Channel <-->|Events| Client
+    Client --- MemoryMap
+    Client --- ViewUI
+    
+    Client -->|HTTP POST Request| Router
+    Router -->|Text Processing| M_LLM
+    Router -->|Image Decoding| M_Vision
+    Router -->|Diffusion Matrix| M_Image
+    Router -->|Audio Decoding| M_Audio
+```
+
+---
