@@ -191,3 +191,64 @@ Due to the heavy lifting performed by machine learning models, your host machine
 * **GPU:** NVIDIA RTX 3060+ with at least `6GB VRAM` to execute Stable Diffusion pipeline in `<5 seconds` via CUDA. (CPU fallback is configured but generates slowly).
 
 ---
+
+## 🛠️ Step-by-Step Installation
+
+### Phase 1: Environment Setup
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/mayank-goyal09/ai-discord-assistant.git
+   cd ai-discord-assistant
+   ```
+2. **Setup Ollama Models:**
+   Ensure Ollama is running in the background, then pull the exact model weights needed.
+   ```bash
+   ollama pull mistral
+   ollama pull llava
+   ```
+
+### Phase 2: Start the AI Backend
+1. Open terminal and navigate to backend folder.
+   ```bash
+   cd backend
+   python -m venv .venv
+   .\.venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
+2. Launch the FastAPI server. Leave this terminal running!
+   *(Note: The first execution will trigger a ~4GB download of HuggingFace cache weights)*
+   ```bash
+   uvicorn app.main:app --host 127.0.0.1 --port 8000
+   ```
+
+### Phase 3: Start the Discord Bot
+1. Retrieve your Bot Token from the [Discord Developer Portal](https://discord.com/developers/applications).
+2. Inside the `/bot` folder, create a `.env` file containing:
+   ```env
+   DISCORD_TOKEN=your_token_here_do_not_share_it
+   BACKEND_URL=http://127.0.0.1:8000
+   ```
+3. Open a **new** terminal, activate the bot environment, and launch:
+   ```bash
+   cd bot
+   python -m venv .venv
+   .\.venv\Scripts\activate
+   pip install -r requirements.txt
+   python bot.py
+   ```
+
+---
+
+## ⚡ Command Reference
+
+Interact with **Nexus** inside any channel where the bot has permissions.
+
+| Trigger/Command | Expected Behavior | Visual Note |
+|---|---|---|
+| `ai: <your text>` | Prompts the AI model. It remembers the last 10 messages of context specifically bound to your discord ID. | 💬 |
+| `image: <prompt>` | Prompts the Stable Diffusion model. Injects an interactive `ViewUI` allowing users to `🔄 Regenerate` or `🗑️ Delete` the output directly. | 🎨 |
+| `ai: clear` | Flushes your memory context. Useful if the bot starts hallucinating or you want to change topics entirely. | 🧹 |
+| **Upload Audio** | The bot captures `.m4a, .ogg, .mp3, .wav` files natively. Faster-Whisper transcribes it into text, runs it through Mistral, and replies. | 🎙️ |
+| **Upload Image** | The backend overrides Mistral and dynamically loads the `LLaVA` model to parse raw `base64` image data, enabling Visual Question Answering. | 👁️ |
+
+---
